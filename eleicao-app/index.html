@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Votação</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f2f2;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      border: 2px solid #111;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #111;
+      padding-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #111;
+      background-color: #f9f9f9;
+      font-size: 14px;
+    }
+
+    .candidatos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .candidato {
+      position: relative;
+    }
+
+    .candidato input[type="radio"] {
+      display: none;
+    }
+
+    .btn-content {
+      padding: 10px 20px;
+      border: 2px solid #111;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-content:hover {
+      background-color: #111;
+      color: white;
+    }
+
+    input[type="radio"]:checked + .btn-content {
+      background-color: #111;
+      color: white;
+    }
+
+    .foto {
+      display: none;
+      position: absolute;
+      top: -10px;
+      left: 110%;
+      width: 100px;
+      height: 100px;
+      border: 2px solid #111;
+      background-size: cover;
+      background-position: center;
+      z-index: 10;
+    }
+
+    .btn-content:hover + .foto {
+      display: block;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #111;
+      background-color: #fff;
+      color: #111;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #111;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Formulário de Votação</h1>
+
+    <form action="/votar" method="POST">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+      <label for="sala">Sala</label>
+      <input type="text" id="sala" name="sala" placeholder="Ex: 1A, 2B, etc." required>
+
+      <label>Escolha seu candidato:</label>
+      <div class="candidatos">
+        <label class="candidato">
+          <input type="radio" name="candidato" value="candidato1" required>
+          <div class="btn-content">Candidato 1</div>
+          <div class="foto" style="background-image: url('https://i.pinimg.com/736x/3f/a3/ad/3fa3ade8b3100eb75cfc1252f7b47144.jpg');"></div>
+        </label>
+
+        <label class="candidato">
+          <input type="radio" name="candidato" value="candidato2">
+          <div class="btn-content">Candidato 2</div>
+          <div class="foto" style="background-image: url('https://i.pinimg.com/736x/33/1c/ab/331cabc6f416bf6ebdcc13d0981604ca.jpg');"></div>
+        </label>
+
+        <label class="candidato">
+          <input type="radio" name="candidato" value="candidato3">
+          <div class="btn-content">Candidato 3</div>
+          <div class="foto" style="background-image: url('https://i.pinimg.com/736x/8f/05/ad/8f05ad3a488c9e272436567611f392ef.jpg');"></div>
+        </label>
+
+        <label class="candidato">
+          <input type="radio" name="candidato" value="branco">
+          <div class="btn-content">Voto em Branco</div>
+        </label>
+
+        <label class="candidato">
+          <input type="radio" name="candidato" value="nulo">
+          <div class="btn-content">Voto Nulo</div>
+        </label>
+      </div>
+
+      <button type="submit">Confirmar Voto</button>
+    </form>
+    <div class="footer">
+      © 2025 EMEF Profª Maria Moraes de Oliveira
+    </div>
+  </div>
+
+</body>
+</html>
